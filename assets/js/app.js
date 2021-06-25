@@ -42,7 +42,7 @@ function agregarTweet(e){
 
     //agregar al localStorage
 
-    agregarAlLocalStorage(tweet);
+    //agregarAlLocalStorage(tweet);
 }
 
 //Elimina el tweet del DOM
@@ -53,74 +53,74 @@ function borrarTweet(e){
         
         const elemento = e.target.parentElement.textContent;
         e.target.parentElement.remove();
-        borrarLocalStorage(elemento);
+        //borrarLocalStorage(elemento);
     }
 }
 
 
 //Mostrar datos del local storage
 
-function localStorageListo(){
-    let tweets;
-    tweets = obtenerTweetsLocalStorage(); 
-    tweets.forEach(function(tweet){
-        //crear boton eliminar
-        const eliminar = document.createElement('a');
-        eliminar.classList = 'borrar-tweet';
-        eliminar.textContent = 'X';
+// function localStorageListo(){
+//     let tweets;
+//     tweets = obtenerTweetsLocalStorage(); 
+//     tweets.forEach(function(tweet){
+//         //crear boton eliminar
+//         const eliminar = document.createElement('a');
+//         eliminar.classList = 'borrar-tweet';
+//         eliminar.textContent = 'X';
         
-        //creaer elemento y añadirle el valor a la lista 
-        const li = document.createElement('li');
-        li.innerText = tweet;
-        //añade el boton borrar
-        li.appendChild(eliminar);
+//         //creaer elemento y añadirle el valor a la lista 
+//         const li = document.createElement('li');
+//         li.innerText = tweet;
+//         //añade el boton borrar
+//         li.appendChild(eliminar);
 
-        //añade el tweet a la lista
-        listaTweets.appendChild(li);
+//         //añade el tweet a la lista
+//         listaTweets.appendChild(li);
         
-    });
-}
+//     });
+//}
 //Agrega al local storage;
-function agregarAlLocalStorage(tweet){
+// function agregarAlLocalStorage(tweet){
     
-    let tweets;
+//     let tweets;
 
-    tweets = obtenerTweetsLocalStorage();
-    tweets.push(tweet);
+//     tweets = obtenerTweetsLocalStorage();
+//     tweets.push(tweet);
 
-    //convertir de arreglo a string para local storage
-    localStorage.setItem('tweets',JSON.stringify(tweets));
-}
+//     //convertir de arreglo a string para local storage
+//     localStorage.setItem('tweets',JSON.stringify(tweets));
+// }
 
-function borrarLocalStorage(elemento){
-    let elem = elemento.substring(0,elemento.length-1);
-    let tweets = obtenerTweetsLocalStorage();
-    let contador = 0;
+// function borrarLocalStorage(elemento){
+//     let elem = elemento.substring(0,elemento.length-1);
+//     let tweets = obtenerTweetsLocalStorage();
+//     let contador = 0;
  
-    tweets.forEach(function(tweet,index){
-        if(tweet == elem){
-            tweets.splice(index,1);
-        }
-    });
+//     tweets.forEach(function(tweet,index){
+//         if(tweet == elem){
+//             tweets.splice(index,1);
+//         }
+//     });
 
-    localStorage.setItem('tweets',JSON.stringify(tweets));
+//     localStorage.setItem('tweets',JSON.stringify(tweets));
 
-}
+// }
 
-//Compueba datos del local storage
-function obtenerTweetsLocalStorage(){
-    let tweets; 
+// //Compueba datos del local storage
+// function obtenerTweetsLocalStorage(){
+//     let tweets; 
 
-    //Revisamos los valores de local storage 
+//     //Revisamos los valores de local storage 
 
-    if(localStorage.getItem('tweets') === null){
-        tweets = [];
-    }
-    else{
+//     if(localStorage.getItem('tweets') === null){
+//         tweets = [];
+//     }
+//     else{
         
-        tweets = JSON.parse(localStorage.getItem('tweets'));    
-        //console.log(tweets);
-    } 
+//         tweets = JSON.parse(localStorage.getItem('tweets'));    
+//         //console.log(tweets);
+//     } 
 
-    return tweets;
-}
+//     return tweets;
+// }
